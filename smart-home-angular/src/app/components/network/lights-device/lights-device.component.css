@@ -1,0 +1,78 @@
+.card {
+  display: grid;
+  grid-template-columns: 7rem 9.5rem;
+  grid-template-rows: 3.5rem 7.5rem 3rem;
+  justify-items: flex-start;
+  margin: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 20px 40px -20px rgba(0, 0, 0, 0.7);
+}
+
+.item-a {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.item-a header {
+  font-size: 1.2rem;
+}
+
+.item-a small {
+  color: #808080;
+}
+
+.item-b {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.item-b i {
+  font-size: 22px;
+  color: #808080;
+}
+
+.item-c {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+}
+
+.item-c i {
+  font-size: 670%;
+  color: #808080;
+}
+
+.item-d {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  justify-self: center;
+  grid-template-columns: 4rem;
+  grid-template-rows: auto auto;
+  justify-items: center;
+}
+
+.subgrid-item-a {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 2.3rem;
+  color: #808080;
+}
+
+.subgrid-item-b {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.subgrid-item-b i {
+  font-size: 300%;
+}
+
+.item-e {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row: 3;
+}

@@ -1,0 +1,111 @@
+.card {
+  display: grid;
+  grid-template-columns: 9.5rem 7rem 7rem;
+  grid-template-rows: 3.5rem 7.5rem 3rem;
+  justify-items: flex-start;
+  margin: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 20px 40px -20px rgba(0, 0, 0, 0.7);
+}
+
+.item-a {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.item-a header {
+  font-size: 1.2rem;
+}
+
+.item-a small {
+  color: #808080;
+}
+
+.item-b {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.item-b i {
+  font-size: 22px;
+  color: #808080;
+}
+
+.item-c {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.item-c i {
+  font-size: 670%;
+  color: #003399;
+}
+
+.item-d {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 4rem 2.5rem;
+  grid-template-rows: 5rem auto;
+  justify-items: flex-start;
+}
+
+.subgrid-item-a {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 4rem;
+  color: #003399;
+}
+
+.subgrid-item-b {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0.6rem;
+  margin-left: -1.7rem;
+  font-size: 2rem;
+  color: #808080;
+}
+
+.subgrid-item-c {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row: 2;
+  align-self: flex-start;
+}
+
+.item-e {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.item-e ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item-f {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 3;
+}
+
+.item-f div,
+.item-f p {
+  display: inline-block;
+}
+
+.item-f p {
+  margin-left: 0.5rem;
+}
+
+.circle {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: red;
+  border-radius: 50%;
+}
