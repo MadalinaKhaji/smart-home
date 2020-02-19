@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SeluxitService } from '../../services/seluxit.service';
+import { Network } from '../../models/network';
 
 @Component({
   selector: 'app-network',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NetworkComponent implements OnInit {
 
-  constructor() { }
+  private data: Object;
+
+  constructor(private seluxitService: SeluxitService) { }
 
   ngOnInit(): void {
+    this.seluxitService.getNetwork().subscribe(data => {
+      this.data = data
+    });
+  }
+
+  logData(): void {
+    console.log(this.data);
   }
 
 }
