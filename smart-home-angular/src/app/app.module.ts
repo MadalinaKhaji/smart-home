@@ -9,6 +9,7 @@ import { NetworkComponent } from './components/network/network.component';
 import { AalborgDeviceComponent } from './components/network/aalborg-device/aalborg-device.component';
 import { LightsDeviceComponent } from './components/network/lights-device/lights-device.component';
 import { NavComponent } from './components/nav/nav.component';
+import { GenericDeviceComponent } from './components/network/generic-device/generic-device.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavComponent } from './components/nav/nav.component';
     NetworkComponent,
     AalborgDeviceComponent,
     LightsDeviceComponent,
-    NavComponent
+    NavComponent,
+    GenericDeviceComponent
   ],
   imports: [
     BrowserModule,
