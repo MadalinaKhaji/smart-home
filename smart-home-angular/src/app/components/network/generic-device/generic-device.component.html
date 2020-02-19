@@ -1,0 +1,23 @@
+<div class="card">
+  <p>{{ device.name }}</p>
+  <p>{{ device.description }}</p>
+  <ul *ngFor="let value of device.value">
+    <li>
+      {{ value.name }}
+      <span *ngFor="let state of value.state">
+        <span *ngIf="state.type === 'Report'">
+          R {{ state.data }}
+          <span *ngIf="value.number">
+            {{ value.number.unit }}
+          </span>
+        </span>
+        <span *ngIf="state.type === 'Control'">
+          C {{ state.data }}
+          <span *ngIf="value.number">
+            {{ value.number.unit }}
+          </span>
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>

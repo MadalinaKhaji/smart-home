@@ -1,4 +1,7 @@
 <main class="container">
   <app-aalborg-device></app-aalborg-device>
   <app-lights-device></app-lights-device>
+  <span *ngFor="let device of devices">
+    <app-generic-device [device]="device"></app-generic-device>
+  </span>
 </main>
