@@ -1,0 +1,8 @@
+{
+  "/smarthome/services/2.0/*": {
+    "target": "https://www.seluxit.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
