@@ -1,7 +1,9 @@
 <main>
   <app-aalborg-device></app-aalborg-device>
   <app-lights-device></app-lights-device>
-  <span *ngFor="let device of devices">
-    <app-generic-device [device]="device"></app-generic-device>
-  </span>
+  <ng-template ngFor let-device [ngForOf]="devices">
+    <ng-template ngFor let-value [ngForOf]="device.value">
+      <app-generic-value [device]="device" [value]="value"></app-generic-value>
+    </ng-template>
+  </ng-template>
 </main>

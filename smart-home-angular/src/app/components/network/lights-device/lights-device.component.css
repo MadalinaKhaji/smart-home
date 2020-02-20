@@ -1,6 +1,6 @@
 .card {
   display: grid;
-  grid-template-columns: 7rem 9.5rem;
+  grid-template-columns: 7rem 7rem;
   grid-template-rows: 3.5rem 7.5rem 3rem;
   justify-items: flex-start;
   margin: 1rem;
