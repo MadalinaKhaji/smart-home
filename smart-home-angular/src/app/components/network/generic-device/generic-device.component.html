@@ -1,23 +1,48 @@
 <div class="card">
-  <p>{{ device.name }}</p>
-  <p>{{ device.description }}</p>
-  <ul *ngFor="let value of device.value">
-    <li>
-      {{ value.name }}
-      <span *ngFor="let state of value.state">
-        <span *ngIf="state.type === 'Report'">
-          R {{ state.data }}
-          <span *ngIf="value.number">
-            {{ value.number.unit }}
+  <div class="grid-container">
+    <div class="grid-item-a">
+      <header>{{ device.name }}</header>
+      <small>{{ device.description }}</small>
+    </div>
+    <div class="grid-item-b">
+      <i class="fas fa-ellipsis-v" (click)="congratulations()"></i>
+    </div>
+    <div class="grid-item-c">
+      <div *ngFor="let value of device.value" class="flex-item">
+        {{ value.name }}:
+        <!-- Both report and control value states exist -->
+        <span *ngIf="value.state && value.state.length > 1">
+          <span *ngFor="let state of value.state">
+            <span *ngIf="state.type === 'Report'">
+              {{ state.data }}
+              <span *ngIf="value.number">{{ value.number.unit }} </span>
+            </span>
+            <span *ngIf="state.type === 'Control'">
+              <i
+                class="fas fa-edit"
+                (click)="editData(device.meta.id, value.meta.id, state.meta.id)"
+              ></i>
+            </span>
           </span>
         </span>
-        <span *ngIf="state.type === 'Control'">
-          C {{ state.data }}
-          <span *ngIf="value.number">
-            {{ value.number.unit }}
+        <!-- Only report or control value state exist -->
+        <span *ngIf="value.state && value.state.length === 1">
+          <span *ngFor="let state of value.state">
+            <span *ngIf="state.type === 'Report'">
+              {{ state.data }}
+              <span *ngIf="value.number">{{ value.number.unit }} </span>
+            </span>
+            <span *ngIf="state.type === 'Control'">
+              {{ state.data }}
+              <span *ngIf="value.number">{{ value.number.unit }} </span>
+              <i
+                class="fas fa-edit"
+                (click)="editData(device.meta.id, value.meta.id, state.meta.id)"
+              ></i>
+            </span>
           </span>
         </span>
-      </span>
-    </li>
-  </ul>
+      </div>
+    </div>
+  </div>
 </div>
