@@ -10,6 +10,7 @@ import { AalborgDeviceComponent } from './components/network/aalborg-device/aalb
 import { LightsDeviceComponent } from './components/network/lights-device/lights-device.component';
 import { NavComponent } from './components/nav/nav.component';
 import { GenericDeviceComponent } from './components/network/generic-device/generic-device.component';
+import { GenericValueComponent } from './components/network/generic-value/generic-value.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GenericDeviceComponent } from './components/network/generic-device/gene
     AalborgDeviceComponent,
     LightsDeviceComponent,
     NavComponent,
-    GenericDeviceComponent
+    GenericDeviceComponent,
+    GenericValueComponent
   ],
   imports: [
     BrowserModule,

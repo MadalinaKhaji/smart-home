@@ -1,0 +1,65 @@
+.card {
+  margin: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 20px 40px -20px rgba(0, 0, 0, 0.7);
+  display: grid;
+  grid-template-columns: 7rem 7rem;
+  grid-template-rows: 3.5rem 7.5rem 3rem;
+}
+
+.grid-item-a {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row: 1;
+}
+
+.grid-item-a header {
+  font-size: 1.2rem;
+}
+
+.grid-item-a small {
+  color: #808080;
+}
+
+.grid-item-b {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.grid-item-b i {
+  font-size: 22px;
+  color: #808080;
+}
+
+.grid-item-c {
+  grid-column: 1;
+  grid-row: 2;
+  place-self: center;
+}
+
+.grid-item-c i {
+  font-size: 550%;
+}
+
+.grid-item-d {
+  grid-column: 2;
+  grid-row: 2;
+  place-self: center;
+}
+
+.grid-item-d section {
+  font-size: 1.75rem;
+}
+
+.grid-item-d section span {
+  color: #808080;
+}
+
+.grid-item-e {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row: 3;
+}

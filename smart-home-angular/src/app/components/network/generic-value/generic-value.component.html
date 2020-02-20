@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="grid-item-a">
+    <header>{{ value.name }}</header>
+    <small>{{ device.name }}</small>
+  </div>
+  <div class="grid-item-b">
+    <i class="fas fa-ellipsis-v" (click)="congratulations()"></i>
+  </div>
+  <div [ngSwitch]="value.name" class="grid-item-c">
+    <i *ngSwitchCase="'CO2'" class="fab fa-envira"></i>
+    <i
+      *ngSwitchCase="'Temperature'"
+      class="fas fa-thermometer-three-quarters"
+    ></i>
+    <i *ngSwitchCase="'Pressure'" class="fas fa-tachometer-alt"></i>
+    <i *ngSwitchCase="'Humidity'" class="fas fa-tint"></i>
+    <i *ngSwitchDefault class="fas fa-check-circle"></i>
+  </div>
+  <div class="grid-item-d">
+    <ng-template ngFor let-state [ngForOf]="value.state">
+      <ng-template [ngIf]="value.state.length > 1">
+        <ng-template [ngIf]="state && state.type === 'Control'">
+          <section>
+            {{ state.data }}
+            <ng-template [ngIf]="value.number">
+              <span>{{ value.number.unit }} &nbsp;</span>
+            </ng-template>
+            <i
+              class="fas fa-edit"
+              (click)="editData(device.meta.id, value.meta.id, state.meta.id)"
+            ></i>
+          </section>
+        </ng-template>
+      </ng-template>
+      <ng-template [ngIf]="value.state.length === 1">
+        <ng-template [ngIf]="state && state.type === 'Report'">
+          <section>
+            {{ state.data }}
+            <ng-template [ngIf]="value.number">
+              <span>{{ value.number.unit }}</span>
+            </ng-template>
+          </section>
+        </ng-template>
+        <ng-template [ngIf]="state && state.type === 'Control'">
+          <section>
+            {{ state.data }}
+            <ng-template [ngIf]="value.number">
+              <span>{{ value.number.unit }} &nbsp;</span>
+            </ng-template>
+            <i
+              class="fas fa-edit"
+              (click)="editData(device.meta.id, value.meta.id, state.meta.id)"
+            ></i>
+          </section>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+  </div>
+  <div class="grid-item-e">
+    <ng-template ngFor let-state [ngForOf]="value.state">
+      <ng-template [ngIf]="value.state.length > 1">
+        <ng-template [ngIf]="state && state.type === 'Report'">
+          <p>Last updated {{ state.timestamp }}</p>
+        </ng-template>
+      </ng-template>
+      <ng-template [ngIf]="value.state.length === 1">
+        <p>Last updated {{ state.timestamp }}</p>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>
