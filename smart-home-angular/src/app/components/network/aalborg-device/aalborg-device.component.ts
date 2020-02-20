@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AalborgDeviceComponent implements OnInit {
 
+  public randomNumber: number;
+
   constructor() { }
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.randomNumber = Math.random();
+    }, 5000);
   }
 
 }

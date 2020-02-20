@@ -19,7 +19,11 @@ export class SeluxitService {
     return this.httpClient.get<Network>(this.apiURL);
   }
 
-  getDevice(deviceID?: string): Observable<Device> {
+  getDevice(deviceID: string): Observable<Device> {
     return this.httpClient.get<Device>(`${this.apiURL}/device/${deviceID}`);
+  }
+
+  updateControlState(deviceID: string, valueID: string, stateID: string, data: string): Observable<Object> {
+    return this.httpClient.patch(`${this.apiURL}/device/${deviceID}/value/${valueID}/state/${stateID}`, data)
   }
 }

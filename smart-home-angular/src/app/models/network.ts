@@ -1,41 +1,40 @@
 export class Network {
-    id: String;
-    name: String;
+    id: string;
+    name: string;
     device: {
         meta: {
-            id: String;
-            type: String;
+            id: string;
+            type: string;
         };
-        name: String;
+        name: string;
         status: [];
-        description?: String;
+        description?: string;
         value: {
             meta: {
-                id: String,
-                type: String
+                id: string,
+                type: string
             },
-            name: String,
-            type: String,
-            permission: String,
+            name: string,
+            type: string,
+            permission: string,
             number?: {
-                max: Number,
-                min: Number,
-                step: Number,
-                unit: String
+                max: number,
+                min: number,
+                step: number,
+                unit: string
             },
             string?: {
-                encoding: String,
-                max: Number
+                encoding: string,
+                max: number
             },
             state: {
                 meta: {
-                    id: String,
-                    type: String
+                    id: string,
                 },
-                timestamp: String,
-                data: String,
-                type: String,
-                status: String
+                timestamp: string,
+                data: string,
+                type: string,
+                status: string
             }[];
         }[];
     }[];
