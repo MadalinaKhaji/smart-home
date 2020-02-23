@@ -6,14 +6,18 @@
   <div class="grid-item-b">
     <i class="fas fa-ellipsis-v" (click)="congratulations()"></i>
   </div>
-  <div [ngSwitch]="value.name" class="grid-item-c">
-    <i *ngSwitchCase="'CO2'" class="fab fa-envira"></i>
+  <div [ngSwitch]="value.type" class="grid-item-c">
+    <i *ngSwitchCase="'co2'" class="fab fa-envira"></i>
     <i
-      *ngSwitchCase="'Temperature'"
+      *ngSwitchCase="'temperature'"
       class="fas fa-thermometer-three-quarters"
     ></i>
-    <i *ngSwitchCase="'Pressure'" class="fas fa-tachometer-alt"></i>
-    <i *ngSwitchCase="'Humidity'" class="fas fa-tint"></i>
+    <i *ngSwitchCase="'pressure'" class="fas fa-tachometer-alt"></i>
+    <i *ngSwitchCase="'humidity'" class="fas fa-tint"></i>
+    <i *ngSwitchCase="'brightness'" class="fas fa-sun"></i>
+    <i *ngSwitchCase="'message'" class="fas fa-bell"></i>
+    <i *ngSwitchCase="'color'" class="fas fa-palette" [ngStyle]="{color: this.colorIndicatorData ? this.colorIndicatorData : '#000000'}"></i>
+    <i *ngSwitchCase="'heat_intensity'" class="fas fa-fire"></i>
     <i *ngSwitchDefault class="fas fa-check-circle"></i>
   </div>
   <div class="grid-item-d">
@@ -60,11 +64,11 @@
     <ng-template ngFor let-state [ngForOf]="value.state">
       <ng-template [ngIf]="value.state.length > 1">
         <ng-template [ngIf]="state && state.type === 'Report'">
-          <p>Last updated {{ state.timestamp }}</p>
+          <p>{{ state.timestamp }}</p>
         </ng-template>
       </ng-template>
       <ng-template [ngIf]="value.state.length === 1">
-        <p>Last updated {{ state.timestamp }}</p>
+        <p>{{ state.timestamp }}</p>
       </ng-template>
     </ng-template>
   </div>

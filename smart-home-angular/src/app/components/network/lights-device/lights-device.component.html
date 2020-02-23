@@ -7,11 +7,30 @@
     <i class="fas fa-ellipsis-v"></i>
   </div>
   <div class="item-c">
-    <i class="far fa-lightbulb"></i>
+    <i
+      class="fas fa-lightbulb"
+      [ngStyle]="{ color: isOn ? 'salmon' : '#808080' }"
+    ></i>
   </div>
   <div class="item-d">
-    <span class="subgrid-item-a">Off</span>
-    <span class="subgrid-item-b"><i class="fas fa-toggle-off"></i></span>
+    <span class="subgrid-item-a">
+      <ng-template [ngIf]="isOn">
+        On
+      </ng-template>
+      <ng-template [ngIf]="!isOn">
+        Off
+      </ng-template>
+    </span>
+    <span class="subgrid-item-b">
+      <label class="switch">
+        <input
+          type="checkbox"
+          [(ngModel)]="isOn"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <span class="slider round"></span>
+      </label>
+    </span>
   </div>
   <div class="item-e">
     <p>Last updated few hours ago</p>
