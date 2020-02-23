@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LightsDeviceComponent implements OnInit {
 
+  public isOn: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.isOn = false;
   }
 
 }

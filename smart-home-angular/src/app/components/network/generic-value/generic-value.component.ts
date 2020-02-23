@@ -14,7 +14,7 @@ export class GenericValueComponent implements OnInit {
 
   @Input() value: Value;
 
-  private data: string;
+  public colorIndicatorData: string;
 
   constructor(private seluxitService: SeluxitService) { }
 
@@ -22,21 +22,25 @@ export class GenericValueComponent implements OnInit {
     this.value.state.forEach(state => {
       if (this.value.number && state.type === 'Report') {
         state.data = parseInt(Number(state.data).toFixed(2)).toString();
-        state.timestamp = this.timeSince(state.timestamp);
+      }
+      if (this.value.type === "color" && state.type === "Report") {
+        this.colorIndicatorData = `#${state.data}`;
+      }
+      if (state.timestamp) {
+        state.timestamp = `Last updated ${this.timeSince(state.timestamp)}`;
       }
     });
   }
 
-  /* Credit to: http://www.samantsingh.com/blogs/post/how-to-format-time-since-xxx-e-g-2-minutes-ago-/*/
-  timeSince(dateString) {
-    var rightNow = new Date();
-    var dd = new Date(dateString);
-    var gmtToLocal = dd.toLocaleString();
-    var then = new Date(gmtToLocal);
-    // var then = convertLocalDateToUTCDate(dateString, false);
+  /* Credit to: http://www.samantsingh.com/blogs/post/how-to-format-time-since-xxx-e-g-2-minutes-ago-/  */
+  timeSince(dateString): string {
+    let rightNow = new Date();
+    let dd = new Date(dateString);
+    let gmtToLocal = dd.toLocaleString();
+    let then = new Date(gmtToLocal);
 
-    var diff = Math.abs((rightNow.getTime() - then.getTime()) / 1000);
-    var second = 1,
+    let diff = Math.abs((rightNow.getTime() - then.getTime()) / 1000);
+    let second = 1,
       minute = second * 60,
       hour = minute * 60,
       day = hour * 24,
@@ -48,7 +52,7 @@ export class GenericValueComponent implements OnInit {
 
     if (diff < second * 2) {
       // within 2 seconds
-      return "right now";
+      return "few seconds ago";
     }
 
     if (diff < minute) {
@@ -92,7 +96,7 @@ export class GenericValueComponent implements OnInit {
         meta: {
           id: stateID
         },
-        timestamp: Date.now().toLocaleString(),
+        timestamp: new Date().toISOString(),
         data: userInput
       };
 

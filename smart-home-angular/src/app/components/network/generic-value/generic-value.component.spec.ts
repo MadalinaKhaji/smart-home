@@ -2,15 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GenericValueComponent } from './generic-value.component';
 
-describe('GenericValueComponent', () => {
+describe("Time Ago Function", () => {
   let component: GenericValueComponent;
+
   let fixture: ComponentFixture<GenericValueComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GenericValueComponent ]
+      declarations: [GenericValueComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('GenericValueComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should return now', () => {
+    expect(component.timeago("")).toBe("now");
   });
 });
